@@ -1,12 +1,14 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
 import matplotlib.pyplot as plt
-import os,sys
+import os
+import sys
 __author__ = 'shenjialong'
 
 #
 # 将 网络流量的 csv文件画成图
 #
+
 
 def analyse(csv_file):
     result = {}
@@ -15,8 +17,8 @@ def analyse(csv_file):
         interface = lines[0].rstrip('\n')
         role = lines[2].rstrip('\n').split()
         result[interface] = {
-            role[0]:[],
-            role[1]:[]
+            role[0]: [],
+            role[1]: []
         }
         for line in lines[3:]:
             every_line_list = line.rstrip('\n').split("\t\t\t")
@@ -33,7 +35,7 @@ def analyse(csv_file):
     return result
 
 
-def draw_pic_and_save(csv_file,target):
+def draw_pic_and_save(csv_file, target):
     data = analyse(csv_file)
     # file,ext = os.path.splitext(csv_file)
     file_name = os.path.basename(csv_file).split('.')[0]
@@ -46,10 +48,10 @@ def draw_pic_and_save(csv_file,target):
         plt.title(title)
         plt.xlabel('time--seconds')
         plt.ylabel('NetIO--KB')
-        pic = plt.plot(x,y1,x,y2)
-        plt.setp(pic ,linewidth=0.4)
-        plt.legend(pic,['Out','In'],'lower left')
-        plt.savefig(target + file_name + '.png' ,dpi=100)
+        pic = plt.plot(x, y1, x, y2)
+        plt.setp(pic, linewidth=0.4)
+        plt.legend(pic, ['Out', 'In'], 'lower left')
+        plt.savefig(target + file_name + '.png', dpi=100)
         plt.close()
         print "saved:" + file_name + ".png in " + target
 
@@ -63,4 +65,4 @@ if __name__ == '__main__':
         sys.exit(1)
     data_path = sys.argv[1]
     save_path = sys.argv[2]
-    draw_pic_and_save(data_path,save_path)
+    draw_pic_and_save(data_path, save_path)

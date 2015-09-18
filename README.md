@@ -3,4 +3,4 @@
 > monitor for process use rpc
 
 TODO
-> use thriftpy instead of SimpleXMLRPCServer
+> use [thriftpy](https://github.com/eleme/thriftpy) instead of SimpleXMLRPCServer
