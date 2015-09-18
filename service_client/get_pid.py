@@ -3,6 +3,7 @@
 import os
 __author__ = 'shenjialong'
 
+
 def get_pid_list(pid_command="ps aux|grep test.service |grep worker"):
     pid_list = []
     ret_text_list = os.popen(pid_command)
