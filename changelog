@@ -3,4 +3,5 @@ Process Monitor Changelog
 
 0.0.1
 -----
-init
+* service agent
+* service client
