@@ -1,6 +1,10 @@
 Process Monitor Changelog
 =========================
 
+0.1.0
+-----
+* use `thriftpy` instead of xmlrpc
+
 0.0.1
 -----
 * service agent
