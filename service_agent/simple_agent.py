@@ -28,7 +28,9 @@ class Task(object):
         logging.info("xmlrpc server start...")
 
     # 获取pid
-    def get_pid_list(self, pid_command="ps aux|grep test.service |grep worker"):
+    def get_pid_list(self, pid_command):
+        if not pid_command:
+            raise ValueError("{} cannt be empty")
         pid_list = []
         ret_text_list = os.popen(pid_command)
         for line in ret_text_list:
