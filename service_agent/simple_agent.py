@@ -38,7 +38,7 @@ class Task(object):
         logging.info(pid_list)
         return pid_list
 
-    def monitor(self, how_long, interval, what):
+    def monitor(self, how_long, interval, what, log_name):
         '''
            how_long -> 监控多长时间，秒 60
            interval -> 监控间隔时间，秒 1
@@ -54,7 +54,7 @@ class Task(object):
             os.mkdir(log_path)
 
         self._cmd = "nohup top -b -d {} -n {} | grep {} >> {} &"\
-            .format(interval, _n, what, log_path + log_time + "_K.log")
+            .format(interval, _n, what, log_path + log_time + "_" + log_name + ".log")
         logging.info("monitor start... ,lasts %s", self.how_long)
         print self._cmd
         os.popen(self._cmd)
