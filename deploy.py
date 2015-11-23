@@ -24,12 +24,12 @@ def upload_agent():
         'service_agent',
         'simple_agent.py')
 
-    run('mkdir {}'.format(REMOTE_PATH))
+    run('mkdir -p {}'.format(REMOTE_PATH))
     put(agent_file_path, REMOTE_PATH)
 
 
 def start_agent(agent_file_path):
-    run('python {} &'.format(agent_file_path))
+    run('nohup python {} >& /dev/null < /dev/null &'.format(agent_file_path), pty=False)
     print "agent start success..."
 
 
