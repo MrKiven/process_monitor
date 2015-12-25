@@ -3,8 +3,8 @@
 
 import os
 
-USER = 'www-data'
-PASSWORD = 'Ele@777'
+USER = 'user'
+PASSWORD = 'password'
 
 REMOTE_PATH = '/data/test/monitor'
 CURRENT_PATH = os.getcwd()
